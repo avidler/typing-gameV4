@@ -26,7 +26,7 @@ const scoreboardRouter = require("./routes/scoreboard")
 app.use('/scoreboard', scoreboardRouter)
 
 app.get('/*', function(req, res) {
-    res.sendFile(path.join(__dirname, "client/index.js"), function(err) {
+    res.sendFile(path.join(__dirname, "client/src/index.js"), function(err) {
       if (err) {
         res.status(500).send(err)
       }
