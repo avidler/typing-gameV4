@@ -3,6 +3,8 @@ const express = require('express')
 const cors = require('cors')
 const mongoose = require('mongoose')
 const path = require('path')
+const scoreboardRouter = require("./routes/scoreboard")
+
 
 require('dotenv').config()
 
@@ -22,13 +24,19 @@ connection.once('open', () => {
     console.log("MongoDB database connection established successfully")
 })
 
-const scoreboardRouter = require("./routes/scoreboard")
 
 app.use('/scoreboard', scoreboardRouter)
 
-app.use(express.static('client/build'))
 
-app.use(routes)
+// Serve static assets if in production
+if(process.env.NODE_ENV === 'production'){
+    // Set static folder
+    app.use(express.static('client/build'))
+
+    app.get('*', (req, res) => {
+        res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
+    })
+}
 
 
 app.listen(port, () => {
