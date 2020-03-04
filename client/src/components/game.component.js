@@ -23,7 +23,11 @@ function Game() {
     function generateRandomNumber() {
         setText("")
         let tempNumString = numString
-        tempNumString = tempNumString + (Math.floor(Math.random() * 10)).toString()
+        do {
+          let newChar = (Math.floor(Math.random() * 10)).toString()
+        }
+        while (newChar === tempNumString(slice(-1)))
+        tempNumString = tempNumString + newChar
         setNumString(tempNumString)
         setLevel(level+1)
         setIsTimeRunning(true)
@@ -144,11 +148,9 @@ function Game() {
         >
           Submit Answer
         </button>
-        <div>
-       <canvas id='textCanvas' height='40'></canvas>
-        {isTimeRunning ?  <img id='image'/> : <img id='image' width='0px'/>}
-        </div>
-     
+       
+        <div className={!isTimeRunning? 'hidden' : ''}><canvas id='textCanvas' height='40' /><img id='image' width='0px'/> </div>
+        
   
         {isTimeRunning ? <div id="generated-text "><p>{timeRemaining}</p></div> : ""}
       
