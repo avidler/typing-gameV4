@@ -22,11 +22,12 @@ function Game() {
   
     function generateRandomNumber() {
         setText("")
+        let newChar = ""
         let tempNumString = numString
         do {
-          let newChar = (Math.floor(Math.random() * 10)).toString()
+          newChar = (Math.floor(Math.random() * 10)).toString()
         }
-        while (newChar === tempNumString(slice(-1)))
+        while (newChar === tempNumString.slice(-1))
         tempNumString = tempNumString + newChar
         setNumString(tempNumString)
         setLevel(level+1)
