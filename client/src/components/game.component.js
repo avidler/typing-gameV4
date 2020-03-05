@@ -131,7 +131,7 @@ function Game() {
         <h1>Check your memory</h1>
         <h2>High Score: {highScore}</h2>
         <h3>Level: {level}</h3>
-        <button onClick={startGame} disabled={isGameRunning}>Start Game</button><br />
+        <button onClick={startGame} disabled={isGameRunning}>Start Game</button><br /><br />
         
           <textarea 
             onChange={handleChange} 
