@@ -1,4 +1,5 @@
 import React, {useState, useRef, useEffect} from "react"
+import { Redirect } from "react-router"
 import axios from 'axios'
 import "bootstrap/dist/css/bootstrap.min.css"
 
@@ -12,6 +13,7 @@ function Game() {
     const [isTimeRunning, setIsTimeRunning] = useState(false)
     const [text, setText] = useState("")
     const [isGameRunning, setIsGameRunning] = useState(false)
+    const [redirect, setRedirect] = useState(false)
     const textBoxRef = useRef(null)
   
     function handleChange(e) {
@@ -84,7 +86,7 @@ function Game() {
           axios.post('/scoreboard/add', userScore)
           .then(res => console.log(res.data))
           }
-            
+           setRedirect(true) 
         })
     //console.log(userScore)
 
@@ -126,6 +128,12 @@ function Game() {
       }
   }, [timeRemaining, isTimeRunning])
   
+  if (redirect) {
+    return (
+      <Redirect to='/scoreboard'/>
+    )
+  }
+  else{
     return (
       <div className="App">
         <h1>Check your memory</h1>
@@ -159,7 +167,7 @@ function Game() {
         
       </div>
     );
-
+    }
 }
 
 export default Game

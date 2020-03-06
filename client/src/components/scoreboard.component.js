@@ -24,9 +24,9 @@ function Scoreboard() {
  
     
     return(
-        <div>
+        <div class="scoreboard">
             <h1>Scoreboard</h1>
-            <table id="scores">
+            <table class="scores">
                 <th>Rank</th><th>Username</th><th>Score</th><th>Date</th>
             {scorelist.map((player, index) => 
                 <tr key={player._id}>
