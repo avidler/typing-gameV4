@@ -12,7 +12,7 @@ The scoreboard displays the top 10 all time scores
 ## To Do List
 
 Improve the design of the app.<br />
-Improve the scoreboard to include the date of the score.<br />
-Better messages to explain whether the user achieved a high score or didn't.<br />
-Redirect the user to the scoreboard page if they achieve a high score.<br />
+Improve the scoreboard to include the date of the score. - Done<br />
+Better messages to explain whether the user achieved a high score or didn't. - Done<br />
+Redirect the user to the scoreboard page if they achieve a high score. - Done<br />
 Ensure that the same digit is not used consecutively when generating the number. - Done<br />

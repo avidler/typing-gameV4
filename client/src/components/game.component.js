@@ -3,6 +3,7 @@ import { Redirect } from "react-router"
 import axios from 'axios'
 import "bootstrap/dist/css/bootstrap.min.css"
 
+
 function Game() {
     const [level, setLevel] = useState(0)
     const [highScore, setHighScore] = useState()
@@ -85,8 +86,9 @@ function Game() {
 
           axios.post('/scoreboard/add', userScore)
           .then(res => console.log(res.data))
+          (setRedirect(true))
           }
-           setRedirect(true) 
+         
         })
     //console.log(userScore)
 
@@ -161,9 +163,9 @@ function Game() {
         <div className={!isTimeRunning? 'hidden' : ''}><canvas id='textCanvas' height='40' /><img id='image' width='0px'/> </div>
         
   
-        {isTimeRunning ? <div id="generated-text "><p>{timeRemaining}</p></div> : ""}
+        {isTimeRunning ? <div id="generated-text"><p>{timeRemaining}</p></div> : ""}
       
-        {showFinalScore ? <div><p>Your text: {text}</p><p>{finalNumString}</p></div> : ""}
+        {showFinalScore ? <div><p>Better luck next time!</p><p>Your text: {text}</p><p>{finalNumString}</p></div> : ""}
         
       </div>
     );
