@@ -9,8 +9,9 @@ import Scoreboard from "./components/scoreboard.component"
 function App() {
   return(
   <Router>
+   
   <div className="container">
-    <Navbar />
+  <Navbar />
     <Route path="/" exact component={Game} />
     <Route path="/scoreboard" exact component={Scoreboard} />
   </div>

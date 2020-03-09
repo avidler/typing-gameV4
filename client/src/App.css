@@ -78,6 +78,17 @@ table.scores {
   color: #61dafb;
 }
 
+
+.navbar-expand-md {
+    flex-flow: row nowrap;
+    justify-content: center;
+}
+
+
+h1 {
+  padding-top: 0.5em;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

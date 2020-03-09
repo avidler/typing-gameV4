@@ -5,10 +5,10 @@ export default class Navbar extends Component {
 
   render() {
     return (
-      <nav className="navbar navbar-dark bg-dark navbar-expand-lg">
+      <nav className="navbar navbar-expand-md navbar-expand-lg navbar-expand-sm navbar-light bg-light center">
         
-        <div className="collpase navbar-collapse">
-        <ul className="navbar-nav mr-auto">
+        <div className="collapse.navbar-collapse">
+        <ul className="nav navbar-nav ">
           <li className="navbar-item">
           <Link to="/" className="nav-link">Play</Link>
           </li>
