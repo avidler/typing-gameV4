@@ -16,6 +16,7 @@ function Game() {
     const [isGameRunning, setIsGameRunning] = useState(false)
     const [redirect, setRedirect] = useState(false)
     const textBoxRef = useRef(null)
+    const [finalMessage, setFinalMessage] = useState("")
   
     function handleChange(e) {
       const {value} = e.target
@@ -78,6 +79,7 @@ function Game() {
         .then(response => {
           console.log("Score to beat: ",response.data[response.data.length-1].score)
           if (level > response.data[response.data.length-1].score){
+            setFinalMessage("Congratulations!")
             let result = window.prompt("Please enter username", "Player 1")
             const userScore= {
               username: result,
@@ -87,6 +89,9 @@ function Game() {
           axios.post('/scoreboard/add', userScore)
           .then(res => console.log(res.data))
           (setRedirect(true))
+          }
+          else {
+            setFinalMessage("Better luck next time!")
           }
          
         })
@@ -165,7 +170,7 @@ function Game() {
   
         {isTimeRunning ? <div id="generated-text"><p>{timeRemaining}</p></div> : ""}
       
-        {showFinalScore ? <div><p>Better luck next time!</p><p>Your text: {text}</p><p>{finalNumString}</p></div> : ""}
+        {showFinalScore ? <div><p>{finalMessage}</p><p>Your text: {text}</p><p>{finalNumString}</p></div> : ""}
         
       </div>
     );
